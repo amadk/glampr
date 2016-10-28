@@ -28,12 +28,12 @@ Trip.belongsToMany(User, {
 });
 
 // Terms connections:
-Term.belongsTo(Trip, {
-  foreignKey:'trip_id'
-});
-
 Trip.hasMany(Term, {
   foreignKey: 'trip_id'
+});
+
+Term.belongsTo(Trip, {
+  foreignKey:'trip_id'
 });
 
 // BorrowUsers join table:

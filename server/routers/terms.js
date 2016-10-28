@@ -6,18 +6,20 @@ var router = express.Router();
 router.route('/maker')
   .post(function(req, res) {
     console.log(req.body)
-      termsController.insertTerms(req.body.terms, req.body.tripId, function() {
+      termsController.insertTerms(req.body.terms, req.body.tripId, function(data) {
         console.log('Inserted new terms')
+        console.log('data in database: ', data);
         res.send('done')
       })
     })
 
-router.route('/user')
+router.route('/user/:tripId')
   .post(function(req, res) {
       
     })
   .get(function(req, res) {
-      termsController.findAll(req.body.tripId, function(terms) {
+      termsController.findAll(req.params.tripId, function(terms) {
+        console.log(terms);
         res.json(terms)
       })
     })
