@@ -1,7 +1,6 @@
 var express = require('express');
 var userController = require('../../db/controllers/users.js');
 var tripController = require('../../db/controllers/trips.js');
-// var smsProtocol = require('../../twilio.js');
 
 var router = express.Router();
 
@@ -14,7 +13,7 @@ router.route('/')
           console.log('found user ');
 
           user.addTrip(trip, {invite_status: 'invited', role: 'organizer'}).then(function() {
-            userController.inviteMembers(req.body.invitees, trip, function() {
+            userController.inviteMembers(user.get('name'), req.body.invitees, trip, function() {
               res.send('Added trip and invited all members');
             })
           });

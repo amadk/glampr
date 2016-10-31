@@ -1,4 +1,4 @@
-const twilio = require('./twilio.js').modules;
+const twilio = require('./twilio.js');
 const _ = require('underscore');
 const CronJob = require('cron').CronJob;
 const twilioSMS = twilio.smsProtocol;
@@ -26,10 +26,8 @@ const job = new CronJob({
   timeZone: 'America/Los_Angeles'
 });
 
-exports.phoneInvite = function(phoneNum, message) {
+exports.phoneInvite = function(phoneNum = '6077650585', message = 'hello from Ben @ twilo!') {
   let e164num = phone(phoneNum, '');
   e164num = e164num[0]
   twilioSMS(e164num, message)
 }
-
-exports.phoneInvite('6077650585', 'hello from Ben @ twilo!')
