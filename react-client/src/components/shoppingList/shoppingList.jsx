@@ -14,7 +14,6 @@ class ShoppingList extends React.Component {
   }
 
   handleSubmit() {
-    console.log(checkList, 'checkList from submit');
     $.ajax({
       type: "POST",
       url: '/shoppingList',

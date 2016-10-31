@@ -16,12 +16,12 @@ const SignIn = (props) => {
         window.location = window.location.pathname + '#/StartTrip';
       }
     } else {
-       window.location = window.location.pathname + '#/SignIn';      
+       window.location = window.location.pathname + '#/Main';      
     }
   }).fail(function (){
     console.log('*******signin response', res);
 
-    window.location = window.location.pathname + '#/SignIn';
+    window.location = window.location.pathname + '#/Main';
     console.log('failed to get from signin');
   });
 

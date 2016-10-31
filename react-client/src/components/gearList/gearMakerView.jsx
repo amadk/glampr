@@ -18,6 +18,7 @@ class GearMaker extends React.Component {
     };
 
     //bind functions to class
+    this.loginStatus = this.props.loginStatus
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleContentChange = this.handleContentChange.bind(this);
     this.handleCategoryChange = this.handleCategoryChange.bind(this);
@@ -28,12 +29,14 @@ class GearMaker extends React.Component {
   handleSubmit(e) {
     let submission = this.state.inputs;
     console.log(submission);
+    let context = this;
     $.ajax({
       type: "POST",
       url: '/gearViewMaker',
       contentType: 'application/json',
       data: JSON.stringify(submission)
     }).done(function() {
+      context.props.loginStatus('user');
       window.location = window.location.pathname + '#/TripDetailsUser';
       console.log('successful post from gear');
     }).fail(function(err) {

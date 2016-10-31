@@ -5,8 +5,6 @@ const SideBar = ({views}) => {
 
     if ( views === 'user' ) {
         return ( <div className="navBar">    
-          <li><Link to="/SignIn">Sign In</Link></li>
-          <li><Link to="/SignUp">Sign Up</Link></li>
           <li><Link to="/TripDetailsUser">Trip Details</Link></li>
           <li><Link to="/TermsUser">Terms</Link></li>
           <li><Link to="/ShoppingList">Shopping List</Link></li>
